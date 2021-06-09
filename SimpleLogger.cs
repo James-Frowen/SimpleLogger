@@ -43,7 +43,7 @@ namespace JamesFrowen.Logging
         [Conditional("UNITY_ASSERTIONS")]
         public static void Assert(bool condition, string msg)
         {
-            if (Logger.IsLogTypeAllowed(LogType.Warning))
+            if (!condition && Logger.IsLogTypeAllowed(LogType.Assert))
                 Logger.Log(LogType.Assert, $"[ASSERT] {msg}");
         }
 
