@@ -5,7 +5,7 @@ namespace JamesFrowen.Logging
 {
     public static class SimpleLogger
     {
-        public static ILogger Logger = UnityEngine.Debug.unityLogger;
+        public static ILogger Logger = new Logger(Debug.unityLogger) { filterLogType = LogType.Error };
 
         [Conditional("TRACE")]
         public static void Trace(string msg)
